@@ -5,10 +5,15 @@ import java.util.regex.Pattern;
 public class UserInfoValidator {
 
 	final static String uc1 = "^[A-Z]{1}[A-Za-z]{2,}"; // USECASE 1 FirstNAme
+	final static String uc2 = "^[A-Z]{1}[A-Za-z]{2,}"; // USECASE 2 LASTNAME
 	
-	
-	public boolean checkFirstName(String name) {
-		return Pattern.compile(uc1).matcher(name).matches();
+	public boolean checkFirstName(String fName) {
+		return Pattern.compile(uc1).matcher(fName).matches();
 	}
+	
+	public boolean checkLastName(String lName) {
+		return Pattern.compile(uc2).matcher(lName).matches();
+	}
+	
 	
 }

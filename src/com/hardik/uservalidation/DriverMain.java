@@ -30,7 +30,7 @@ public class DriverMain {
 		String lName = sc.next();
 		if(userInfoValidator.checkLastName(lName) == true) {
 			System.out.println("Valid Last name");
-			userDetail.setfName(lName);
+			userDetail.setlName(lName);
 		}
 		else System.out.println("Invalid LastName");
 		
@@ -39,9 +39,18 @@ public class DriverMain {
 		String emailId = sc.next();
 		if(userInfoValidator.checkEmailId(emailId) == true) {
 			System.out.println("Valid Email");
-			userDetail.setfName(emailId);
+			userDetail.setEmailID(emailId);
 		}
 		else System.out.println("Invalid Email");
+		
+		//Check for Phone Number
+		System.out.println("Enter the Phone Num: ");
+		String phone = sc.next();
+		if(userInfoValidator.checkPhoneNum(phone) == true) {
+			System.out.println("Valid Phone ");
+			userDetail.setPhoneNum(phone);
+		}
+		else System.out.println("Invalid Phone ");
 		
 	}
 	

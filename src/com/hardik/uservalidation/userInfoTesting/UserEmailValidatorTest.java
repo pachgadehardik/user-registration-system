@@ -14,6 +14,8 @@ import org.junit.runners.Parameterized.Parameters;
 
 import com.hardik.uservalidation.UserInfoValidator;
 
+import exception.UserException;
+
 @RunWith(Parameterized.class)
 public class UserEmailValidatorTest {
 
@@ -31,7 +33,7 @@ public class UserEmailValidatorTest {
 		return Arrays.asList(new Object[][]  {
 			{"abc@yahoo.com", true },
 			{"abc-100@yahoo.com", true },
-			{"abc.100@yahoo.com", true },
+			{"abc.100@yahoo.com", true },	
 			{"abc111@abc.com", true },
 			{"abc-100@abc.net", true},
 			{"abc.100@abc.com.au", true},
@@ -57,7 +59,7 @@ public class UserEmailValidatorTest {
 	}
 	
 	@Test
-	public void givenEmailId_ShouldReturnAsPerTheParametrisedResult() {
+	public void givenEmailId_ShouldReturnAsPerTheParametrisedResult() throws UserException {
 			assertEquals(UserInfoValidator.checkEmailId(emailIdTest), result);
 	}
 	

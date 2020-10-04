@@ -2,6 +2,8 @@ package com.hardik.uservalidation;
 
 import java.util.Scanner;
 
+import exception.UserException;
+
 public class DriverMain {
 
 	public static void main(String args[]) {
@@ -13,51 +15,63 @@ public class DriverMain {
 		UserDetails userDetail = new UserDetails();
 		UserInfoValidator userInfoValidator = new UserInfoValidator();
 
-		// Check for First Name
-		System.out.println("Enter the First Name: ");
-		String fName = sc.next();
-		if (userInfoValidator.checkFirstName(fName) == true) {
-			System.out.println("Valid Last name");
-			userDetail.setfName(fName);
-		} else
-			System.out.println("Invalid FirstName");
+		// Check for First Name with Custom Exception Enable
+		try {
+			System.out.println("Enter the First Name: ");
+			String fName = sc.next();
+			if (UserInfoValidator.checkFirstName(fName) == true) {
+				System.out.println("Valid Last name");
+				userDetail.setfName(fName);
+			}
+		} catch (UserException e) {
+			System.out.println(e.getClass() + " " + e.getMessage());
+		}
 
-		// Check for Last Name
-		System.out.println("Enter the Last Name: ");
-		String lName = sc.next();
-		if (userInfoValidator.checkLastName(lName) == true) {
-			System.out.println("Valid Last name");
-			userDetail.setlName(lName);
-		} else
-			System.out.println("Invalid LastName");
+		// Check for Last Name with Custom Exception
+		try {
+			System.out.println("Enter the Last Name: ");
+			String lName = sc.next();
+			if (UserInfoValidator.checkLastName(lName) == true) {
+				System.out.println("Valid Last name");
+				userDetail.setlName(lName);
+			}
+		} catch (UserException e) {
+			System.out.println(e.getClass() + " " + e.getMessage());
+		}
 
-		// Check for Email
-		System.out.println("Enter the Email ID: ");
-		String emailId = sc.next();
-		if (userInfoValidator.checkEmailId(emailId) == true) {
-			System.out.println("Valid Email");
-			userDetail.setEmailID(emailId);
-		} else
-			System.out.println("Invalid Email");
-
-		// Check for Phone Number
-		System.out.println("Enter the Phone Num: ");
-		String phone = sc.next();
-		if (userInfoValidator.checkPhoneNum(phone) == true) {
-			System.out.println("Valid Phone ");
-			userDetail.setPhoneNum(phone);
-		} else
-			System.out.println("Invalid Phone ");
-
-		// Check Password
-		System.out.println("Enter the Password: ");
-		String pw = sc.next();
-		if (userInfoValidator.checkPassword(pw) == true) {
-			System.out.println("Valid Password");
-			userDetail.setPassWord(pw);
-		} else
-			System.out.println("Invalid Password");
-
+		// Check for Email with Custom Exception
+		try {
+			System.out.println("Enter the Email ID: ");
+			String emailId = sc.next();
+			if (UserInfoValidator.checkEmailId(emailId) == true) {
+				System.out.println("Valid Email");
+				userDetail.setEmailID(emailId);
+			}
+		} catch (UserException e) {
+			System.out.println(e.getClass() + " " + e.getMessage());
+		}
+		// Check for Phone Number with custom Exception
+		try {
+			System.out.println("Enter the Phone Num: ");
+			String phone = sc.next();
+			if (UserInfoValidator.checkPhoneNum(phone) == true) {
+				System.out.println("Valid Phone ");
+				userDetail.setPhoneNum(phone);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getClass() + " " + e.getMessage());
+		}
+		// Check Password with Custom Exception Enable
+		try {
+			System.out.println("Enter the Password: ");
+			String pw = sc.next();
+			if (UserInfoValidator.checkPassword(pw) == true) {
+				System.out.println("Valid Password");
+				userDetail.setPassWord(pw);
+			}
+		} catch (UserException e) {
+			System.out.println(e.getClass() + " " + e.getMessage());
+		}
 	}
 
 }

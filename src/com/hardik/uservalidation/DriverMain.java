@@ -13,7 +13,7 @@ public class DriverMain {
 		System.out.println("USER REGISTRATION SYSTEM, Enter the Required Details--");
 
 		UserDetails userDetail = new UserDetails();
-		UserInfoValidator userInfoValidator = new UserInfoValidator();
+//		UserInfoValidator userInfoValidator = new UserInfoValidator();
 
 		// Check for First Name with Custom Exception Enable
 		try {
@@ -61,6 +61,7 @@ public class DriverMain {
 		} catch (Exception e) {
 			System.out.println(e.getClass() + " " + e.getMessage());
 		}
+		
 		// Check Password with Custom Exception Enable
 		try {
 			System.out.println("Enter the Password: ");
@@ -72,6 +73,7 @@ public class DriverMain {
 		} catch (UserException e) {
 			System.out.println(e.getClass() + " " + e.getMessage());
 		}
+		
 	}
 
 }

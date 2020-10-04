@@ -21,7 +21,7 @@ class UserInfoValidatorTest {
 	public void givenFirstLastName_WhenShort_ShouldReturnException() throws UserException {
 		UserInfoValidator obj = new UserInfoValidator();
 		assertThrows(UserException.class, () -> UserInfoValidator.checkFirstName("ha"));
-		assertThrows(UserException.class, () -> obj.checkLastName("pa"));
+		assertThrows(UserException.class, () -> UserInfoValidator.checkLastName("pa"));
 
 	}
 
